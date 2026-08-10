@@ -64,7 +64,8 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     return Object.keys(newErrors).length === 0;
   };
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+console.log(API_URL, "sssss")
 const handleSignup = async () => {
   if (!validate()) return;
 

@@ -11,7 +11,7 @@ function StudentDetails({ students, setStudents }) {
   const [formData, setFormData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 
   // Fetch student
