@@ -55,7 +55,7 @@ const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
     console.log(err);
   }
 };
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 const handleDelete = async () => {
   if (
     !window.confirm(
