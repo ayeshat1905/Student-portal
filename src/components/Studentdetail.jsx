@@ -11,7 +11,7 @@ function StudentDetails({ students, setStudents }) {
   const [formData, setFormData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
-
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 
   // Fetch student
@@ -21,7 +21,7 @@ function StudentDetails({ students, setStudents }) {
         setLoading(true);
 
         const res = await axios.get(
-          `http://localhost:5000/${id}`
+          `${API_URL}/${id}`
         );
 
         setFormData(res.data);
@@ -72,14 +72,14 @@ function StudentDetails({ students, setStudents }) {
 
     reader.readAsDataURL(file);
   };
-
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
   // Update student
   const handleUpdate = async () => {
     try {
       setUpdating(true);
 
       const res = await axios.put(
-        `http://localhost:5000/${id}`,
+        `${API_URL}/${id}`,
         formData
       );
 

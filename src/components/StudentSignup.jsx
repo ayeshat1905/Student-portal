@@ -64,13 +64,13 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     return Object.keys(newErrors).length === 0;
   };
-
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 const handleSignup = async () => {
   if (!validate()) return;
 
   try {
     const res = await axios.post(
-      "http://localhost:5000/signup",
+      `${API_URL}/signup`,
       {
         name: form.name,
         email: form.email,

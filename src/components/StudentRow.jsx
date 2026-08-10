@@ -38,11 +38,11 @@ function StudentRow({
     const handleCancel = () => {
         setIsEditing(false);
     };
-
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
  const handleSave = async () => {
   try {
     await axios.put(
-      `http://localhost:5000/${student._id}`,
+      `${API_URL}/${student._id}`,
       form
     );
 
@@ -55,7 +55,7 @@ function StudentRow({
     console.log(err);
   }
 };
-
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 const handleDelete = async () => {
   if (
     !window.confirm(
@@ -66,7 +66,7 @@ const handleDelete = async () => {
 
   try {
     await axios.delete(
-      `http://localhost:5000/${student._id}`
+      `${API_URL}/${student._id}`
     );
 
     alert("Deleted Successfully");

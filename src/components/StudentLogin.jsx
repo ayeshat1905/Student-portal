@@ -59,13 +59,13 @@ function StudentLogin() {
   //   }
   // };
 
-
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 const handleLogin = async () => {
   if (!validate()) return;
 
   try {
     const res = await axios.post(
-      "http://localhost:5000/login",
+     `${API_URL}/login`,
       {
         email,
         password,

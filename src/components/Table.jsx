@@ -56,7 +56,7 @@ if (password.trim() === "") {
   if (Object.keys(newErrors).length > 0) {
     return;
   }
-
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
   const newStudent = {
     name,
     email,
@@ -71,7 +71,7 @@ if (password.trim() === "") {
 
   try {
     const res = await axios.post(
-      "http://localhost:5000/add",
+      `${API_URL}/add`,
       newStudent
     );
 
