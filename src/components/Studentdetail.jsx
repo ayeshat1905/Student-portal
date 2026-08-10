@@ -72,7 +72,7 @@ const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
     reader.readAsDataURL(file);
   };
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
   // Update student
   const handleUpdate = async () => {
     try {
