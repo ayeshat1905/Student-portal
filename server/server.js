@@ -11,7 +11,29 @@ dotenv.config({ path: path.join(__dirname, ".env") });
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+  "https://student-portal-ayesha1905.vercel.app",
+  "http://localhost:5173",
+  "http://localhost:5174",
+];
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`CORS blocked for origin: ${origin}`));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+app.options(/.*/, cors());
+
 app.use(express.json({ limit: "10mb" }));
 
 mongoose
